@@ -30,13 +30,34 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
+"""
+custom_auth has to come first cuz it overrides
+django built in authentication model
+"""
+
 INSTALLED_APPS = [
+
+    # custom auth needs to come first
+
+    'apps.custom_auth',
+
+    # django apps
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party apps
+
+    'imagekit',
+
+    # project apps
+
+    'apps.base_app',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+body{
+    margin: 0;
+    border: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('./Imagens/jefferson-santos-9SoCnyQmkzI-unsplash\ 1\ \(3\).png');
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: 110%;
+    background-position-x: -4px;
+    height: 70vh;
+    background-color: #091220;
+}
+
+header{
+    height: 2vh;
+    background-color: #0a75c0;
+}
+.texto{
+    margin-left: 20%;
+}
+
+.topo-site{
+    display: flex;
+    align-items: center;
+    margin-top: 9%;
+}
+.criacao-nome{
+    display: flex;
+    align-items: center;
+}
+.criacao-nome h1{
+    font-size: 70px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 2px 2px 2px black;
+}
+
+.criacao-nome h1:nth-child(1){
+    color: #0a75c0;
+}
+.topo-site h2{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin-top: -40px;
+    width: 500px;
+}
+
+.topo-site h2 i{
+    color: #0a75c0;
+}
+
+h1:nth-child(1):before{
+    content: "|";
+    color: white;
+    text-align: center;
+}
+
+#mensagem{
+    background: none;
+    width: 440px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    align-items: center;
+    height: 70px;
+    border-bottom: 2px solid #0a75c0;
+}
+
+.mensagem-1{
+    animation: mensagens-na-tela 1s ease-in-out;
+    animation-fill-mode: forwards;
+    margin-left: -12%;
+}
+.mensagem-2{
+    animation: mensagens-na-tela 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    margin-left: -100%;
+}
+.mensagem-3{
+    animation: mensagens-na-tela 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    margin-left: -100%;
+}
+
+@keyframes mensagens-na-tela {
+    0%{
+        opacity: 0%;
+        margin-left: -10%;
+    }
+    100%{
+        margin-left: 20%;
+        margin-bottom: 40px;
+    }
+}
+
+#mensagem p{
+    color: white;
+    text-align: left;
+    padding-top: 2%;
+    font-size: 22px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.534);
+}
+
+.seta-para-baixo{
+    margin-left: 30%;
+    animation: animacao-seta 2s infinite ease-in-out;
+    animation-direction: alternate;
+}
+
+.seta-para-baixo img{
+    height: 100px;
+    width: 100px;
+}
+
+@keyframes animacao-seta {
+    50%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform: translateY(30px);
+    }
+}
+
+#logo{
+    margin-left: 20%;
+    margin-bottom: -50px;
+}
+
+.section-cards{
+    background-color: #091220;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 180px;
+   }
+   
+.section-cards h2{
+   color: #fff;
+   text-transform: uppercase;
+   font-size: 30px;
+   margin-top: 70px;
+   }
+   
+.cards{
+   display: flex;
+   flex-direction: row;
+   margin-top: 10px;
+   margin-bottom: 50px;
+   }
+   
+.card{
+   background-color: #494d53;
+   width: 220px;
+   height: 190px;
+   margin-left: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   color: #fff;
+   border-radius: 20px;
+   }
+   
+.card:hover{
+   background-color: #104757;
+   transition: 0.3s all;
+   }
+   
+.card img{
+   width: 60px;
+   padding-bottom: 20px;
+   }
+
+.portfolio h2{
+    color: white;
+    margin-top: 100px;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.portfolio {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -22px;
+}
+.slide {
+    width: 1024px;
+    height: 576px;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.slides {
+    display: flex;
+    width: 5120px;
+}
+
+.imagens-slide img{
+    width: 1024px;
+    height: 100%;
+}
+
+#atual {
+    transition: all 2s;
+}
+
+.btn {
+    position:absolute;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s;
+    font-size: 3em;
+    margin-top: 88%;
+}
+
+.btn:hover{
+    transform: scale(1.5);
+}
+
+#voltar {
+    top: 50%;
+    left: 7%;
+}
+#next {
+    top: 50%;
+    right: 7%;
+}
+
+.balls {
+    position: absolute;
+    width: 1024px;
+    display: flex;
+    justify-content: center;
+    margin-top: -45px;
+}
+
+.balls div{
+    transition: all 0.5s;
+    border: 3px solid #1c1c1d;
+    padding: 6px;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.balls div:hover {
+    background: #222222;
+}
+
+.imgAtual {
+    transition: all 0.5s;
+    background: #fff;
+}
+
+.titulo h2{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 40px;
+}

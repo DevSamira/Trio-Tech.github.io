@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+</head>
+<body>
+
+    <a href="{% url 'order:orders-list' %}">Ver Pedidos</a>
+
+    <br><br>
+
+    <a href="{% url 'order:orders-update' object.pk %}">Editar Pedido</a>
+    <a href="{% url 'order:orders-delete' object.pk %}">Deletar Pedido</a>
+
+    <p>Título: {{ order.title }}</p>
+    <p>Descricao: {{ order.description }}</p>
+    <p>Status: {{ order.get_status }}</p>
+    <p>Criador: {{ order.owner }}</p>
+    <br>
+
+    <a href="{% url 'comment:comments-create' order_id=object.pk %}">Fazer Comentario</a>
+
+    <h1>COMENTARIOS DO POST</h1>
+
+    {% for comment in comments %}
+
+        <p>{{ comment }}</p>
+
+    {% endfor %}
+
+</body>
+</html>

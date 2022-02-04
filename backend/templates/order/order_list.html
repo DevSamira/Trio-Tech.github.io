@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+</head>
+<body>
+
+    <a href="{% url 'index' %}">Index</a> /
+    <a href="{% url 'order:orders-create' %}">Fazer Pedido</a>
+    <br><br>
+
+    {% for order in object_list %}
+        <br>
+        <a href="{% url 'order:orders-detail' order.pk %}"> Título: {{ order.title }}</a>
+        <p>Título: {{ order.title }}</p>
+        <p>Descricao: {{ order.description }}</p>
+        <p>Status: {{ order.get_status }}</p>
+        <p>Criador: {{ order.owner }}</p>
+        <br>
+
+    {% endfor %}
+
+</body>
+</html>

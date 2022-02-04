@@ -38,10 +38,6 @@ django built in authentication model
 
 INSTALLED_APPS = [
 
-    # custom auth needs to come first
-
-    # 'apps.custom_auth',
-
     # django apps
 
     'django.contrib.admin',
@@ -58,6 +54,8 @@ INSTALLED_APPS = [
     # project apps
 
     'apps.base_app',
+    'apps.order',
+    'apps.comment'
 ]
 
 MIDDLEWARE = [

@@ -1,3 +1,6 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 
 from django.views.generic import CreateView
@@ -10,12 +13,22 @@ from .models import Order
 from apps.comment.models import Comment
 
 
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin, ListView):
 
     model = Order
 
+    def get_queryset(self):
 
-class OrderDetailView(DetailView):
+        print(self.kwargs)
+
+        status_id = self.kwargs["status_id"]
+        queryset = self.model.objects.filter(
+            status=status_id, owner=self.request.user)
+
+        return queryset
+
+
+class OrderDetailView(LoginRequiredMixin, DetailView):
 
     model = Order
 
@@ -28,13 +41,13 @@ class OrderDetailView(DetailView):
         return context
 
 
-class OrderCreateView(CreateView):
+class OrderCreateView(LoginRequiredMixin, CreateView):
 
     model = Order
     fields = ['title', 'description']
 
     def get_success_url(self):
-        return reverse('order:orders-list', current_app='order')
+        return reverse('order:orders-list', kwargs={'status_id': self.object.status}, current_app='order')
 
     def form_valid(self, form):
 
@@ -44,16 +57,17 @@ class OrderCreateView(CreateView):
         return super().form_valid(form)
 
 
-class OrderUpdateView(UpdateView):
+class OrderUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Order
     fields = ['title', 'description']
 
     def get_success_url(self):
-        return reverse('order:orders-list', current_app='order')
+        # return reverse('order:orders-detail', args=[self.object.pk], current_app='order')
+        return reverse('order:orders-detail', kwargs={'pk': self.object.pk}, current_app='order')
 
 
-class OrderDeleteView(DeleteView):
+class OrderDeleteView(LoginRequiredMixin, DeleteView):
 
     model = Order
     template_name = 'confirm_delete.html'

@@ -1,3 +1,5 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.urls import reverse, reverse_lazy
 
 from django.views.generic import CreateView
@@ -10,7 +12,7 @@ from .models import Comment
 from apps.order.models import Order
 
 
-class CommentCreateView(CreateView):
+class CommentCreateView(LoginRequiredMixin, CreateView):
 
     model = Comment
     fields = ['comment']
@@ -21,7 +23,7 @@ class CommentCreateView(CreateView):
     def form_valid(self, form):
 
         order_id = self.request.path.split('/comments/create/')[1]
-        print(order_id)
+        # order_id = self.request.GET.get()
 
         order = Order.objects.get(id=order_id)
 
@@ -32,14 +34,14 @@ class CommentCreateView(CreateView):
         return super().form_valid(form)
 
 
-class CommentUpdateView(UpdateView):
+class CommentUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Comment
     fields = ['title']
     success_url = reverse_lazy('comments-list')
 
 
-class CommentDeleteView(DeleteView):
+class CommentDeleteView(LoginRequiredMixin, DeleteView):
 
     model = Comment
     success_url = reverse_lazy('comments-list')

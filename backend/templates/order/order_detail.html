@@ -8,12 +8,22 @@
 </head>
 <body>
 
-    <a href="{% url 'order:orders-list' %}">Ver Pedidos</a>
+<center>
 
-    <br><br>
+    <a href="{% url 'order:orders-list' status_id=0 %}">Ver Pedidos</a>
+
+    <br><br><br><br><br>
+
+    {% if object.status == 0 %}
 
     <a href="{% url 'order:orders-update' object.pk %}">Editar Pedido</a>
     <a href="{% url 'order:orders-delete' object.pk %}">Deletar Pedido</a>
+
+    {% else %}
+
+    <a href="{% url 'order:orders-delete' object.pk %}">Deletar Pedido</a>
+
+    {% endif %}
 
     <p>Título: {{ order.title }}</p>
     <p>Descricao: {{ order.description }}</p>
@@ -30,6 +40,7 @@
         <p>{{ comment }}</p>
 
     {% endfor %}
+</center>
 
 </body>
 </html>

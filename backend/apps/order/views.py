@@ -80,4 +80,4 @@ class OrderDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
 
         self.status_id = self.get_object().status
-        return super().deleter(*args, **kwargs)
+        return super().delete(*args, **kwargs)

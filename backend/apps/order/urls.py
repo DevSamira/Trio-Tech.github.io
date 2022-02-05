@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
 
-    path('orders/', views.OrderListView.as_view(), name='orders-list'),
+    path('orders/status/<int:status_id>',
+         views.OrderListView.as_view(), name='orders-list'),
 
     path('orders/create/', views.OrderCreateView.as_view(),
          name='orders-create'),

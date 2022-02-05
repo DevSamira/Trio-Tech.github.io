@@ -1,3 +1,27 @@
-PAGINA PRINCIPAL
+<center>{% if request.user.is_authenticated %}
+
+PEDIDOS
 <br><br>
-<a href="{% url 'order:orders-list' %}">Ver pedidos</a>
+<a href="{% url 'logout' %}">Fazer Logout</a> |
+
+
+<a href="{% url 'order:orders-create' %}">Fazer Pedido</a>
+
+
+<br><br><br>
+
+<a href="{% url 'order:orders-list' status_id=0 %}">Pendentes: {{ pending_count }}</a>
+
+<br><br><br>
+
+<a href="{% url 'order:orders-list' status_id=1 %}">Aceitos: {{ accepted_count }}</a>
+
+<br><br><br>
+
+<a href="{% url 'order:orders-list' status_id=2 %}">Rejeitados: {{ rejected_count }}</a>
+
+{% else %}
+
+<a href="{% url 'login' %}">Fazer Login</a>
+
+{% endif %}</center>

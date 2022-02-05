@@ -72,5 +72,12 @@ class OrderDeleteView(LoginRequiredMixin, DeleteView):
     model = Order
     template_name = 'confirm_delete.html'
 
+    status_id = None
+
     def get_success_url(self):
-        return reverse('order:orders-list', current_app='order')
+        return reverse('order:orders-list', kwargs={"status_id": self.status_id}, current_app='order')
+
+    def delete(self, request, *args, **kwargs):
+
+        self.status_id = self.get_object().status
+        return super().deleter(*args, **kwargs)

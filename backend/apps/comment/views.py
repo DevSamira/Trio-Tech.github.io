@@ -10,6 +10,7 @@ from django.views.generic.detail import DetailView
 from .models import Comment
 
 from apps.order.models import Order
+from project.custom_mixins import HasCommentPermissionMixin
 
 
 class CommentCreateView(LoginRequiredMixin, CreateView):
@@ -34,14 +35,14 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class CommentUpdateView(LoginRequiredMixin, UpdateView):
+class CommentUpdateView(LoginRequiredMixin, HasCommentPermissionMixin, UpdateView):
 
     model = Comment
     fields = ['title']
     success_url = reverse_lazy('comments-list')
 
 
-class CommentDeleteView(LoginRequiredMixin, DeleteView):
+class CommentDeleteView(LoginRequiredMixin, HasCommentPermissionMixin, DeleteView):
 
     model = Comment
     success_url = reverse_lazy('comments-list')

@@ -11,6 +11,7 @@ from django.views.generic.detail import DetailView
 from .models import Order
 
 from apps.comment.models import Comment
+from project.custom_mixins import HasOrderPermissionMixin
 
 
 class OrderListView(LoginRequiredMixin, ListView):
@@ -28,7 +29,7 @@ class OrderListView(LoginRequiredMixin, ListView):
         return queryset
 
 
-class OrderDetailView(LoginRequiredMixin, DetailView):
+class OrderDetailView(LoginRequiredMixin, HasOrderPermissionMixin, DetailView):
 
     model = Order
 
@@ -57,7 +58,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class OrderUpdateView(LoginRequiredMixin, UpdateView):
+class OrderUpdateView(LoginRequiredMixin, HasOrderPermissionMixin, UpdateView):
 
     model = Order
     fields = ['title', 'description']
@@ -67,7 +68,7 @@ class OrderUpdateView(LoginRequiredMixin, UpdateView):
         return reverse('order:orders-detail', kwargs={'pk': self.object.pk}, current_app='order')
 
 
-class OrderDeleteView(LoginRequiredMixin, DeleteView):
+class OrderDeleteView(LoginRequiredMixin, HasOrderPermissionMixin, DeleteView):
 
     model = Order
     template_name = 'confirm_delete.html'

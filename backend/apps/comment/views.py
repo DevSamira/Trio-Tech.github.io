@@ -23,8 +23,10 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
 
-        order_id = self.request.path.split('/comments/create/')[1]
-        # order_id = self.request.GET.get()
+        # duas maneiras de fazer a mesma coisa (a segunda é melhor)
+
+        # order_id = self.request.path.split('/comments/create/')[1]
+        order_id = self.kwargs["order_id"]
 
         order = Order.objects.get(id=order_id)
 

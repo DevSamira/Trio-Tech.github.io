@@ -379,6 +379,14 @@ h1:nth-child(1):before{
     margin-bottom: -50px;
 }
 
+.footer-redes img{
+    cursor: pointer;
+}
+
+.footer-redes .img-2, .img-3{
+    margin-left: 12px;
+}
+
 .footer-paragrafo {
     margin-bottom: -50px;
 }

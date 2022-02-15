@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
     <title>Orders</title>
 </head>
 <body>
 
 <center>
 
+    <div id="order-and-comments">
+
     <a href="{% url 'order:orders-list' status_id=0 %}">Ver Pedidos</a>
 
-    <br><br><br><br><br>
+    <br><br><br>
 
     {% if object.status == 0 %}
 
@@ -29,17 +32,27 @@
     <p>Descricao: {{ order.description }}</p>
     <p>Status: {{ order.get_status }}</p>
     <p>Criador: {{ order.owner }}</p>
-    <br>
 
-    <a href="{% url 'comment:comments-create' order_id=object.pk %}">Fazer Comentario</a>
 
     <h1>COMENTARIOS DO POST</h1>
+
+    <form hx-post="{% url 'comment:comments-create' order_id=object.pk %}" hx-swap="outerHTML" hx-target="#order-and-comments">
+
+        {% csrf_token %}
+        <label for="">{{ form.comment }}</label><br><br>
+
+        <button type="submit" > Fazer Comentario </button>
+
+    </form>
+    <br>
 
     {% for comment in comments %}
 
         <p>{{ comment }}</p>
 
     {% endfor %}
+
+    </div>
 </center>
 
 </body>

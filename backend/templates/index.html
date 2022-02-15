@@ -1,27 +1,137 @@
-<center>{% if request.user.is_authenticated %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-PEDIDOS
-<br><br>
-<a href="{% url 'logout' %}">Fazer Logout</a> |
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href= {% static 'style.css' %}>
+    <link rel="shortcut icon" href={% static '/Imagens/logopng2.png' %} />
+    <script src="https:kit.fontawesome.com/ca14b9e588.js" crossorigin="anonymous"></script>
+    <title>TT - TrioTech</title>
+</head>
 
+<body>
+    <header id="navbar">
+        <h2>TRIO - TECH</h2>
+        <nav>
+            <ul class="navbar-list">
+                <li><a href="#navbar">INÍCIO</a></li>
+                <li><a href="#section-cards">SOBRE</a></li>
+                <li><a href="#portfolio">PROJETOS</a></li>
+                <li><a href="#contrate">CONTRATE-NOS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="topo-site">
+        <div class="mensagens">
+            <section id="mensagem" class="mensagem-1">
+                <p>Procurando soluções para os seus problemas?</p>
+            </section>
+            <section id="mensagem" class="mensagem-2">
+                <p>Somos sinônimo de agilidade e qualidade</p>
+            </section>
+            <section id="mensagem" class="mensagem-3">
+                <p>Alavanque os seus negócios com a gente!
+                <p>
+            </section>
+        </div>
+        <div class="mensagens">
+        </div>
+        <div class="texto">
+            <img id="logo" src={% static '/Imagens/logopng2.png' %} alt="logo empresa" width="100px" height="100px">
+            <div class="criacao-nome">
+                <h1>TRIO</h1>
+                <h1> TECH</h1>
+            </div>
+            <h2>Criar, inovar, <i>revolucionar.</i></h2>
+            <figure class="seta-para-baixo">
+                <img src= {% static '/Imagens/271210.png' %} alt="seta para baixo">
+            </figure>
+        </div>
+    </section>
+    <section id="section-cards">
+        <h2>UMA EMPRESA QUE TE GARANTE</h2>
+        <div class="cards">
+            <div class="card">
+                <img src={% static 'Imagens/tecnologia.png' %}>
+                QUALIDADE DE SOFTWARE
+            </div>
+            <div class="card">
+                <img src={% static 'Imagens/tecnologia.png' %}>
+                COMPROMISSO
+            </div>
+            <div class="card">
+                <img src={% static 'Imagens/tecnologia.png' %}>
+                INTELIGIBILIDADE
+            </div>
+            <div class="card">
+                <img src={% static 'Imagens/tecnologia.png' %}>
+                RESOLUÇÃO DE PROBLEMAS
+            </div>
+        </div>
+        <br>
+        <hr width="40%">
+        </hr> <br>
+    </section>
+    <div class="titulo">
+        <h2>PROJETOS DESENVOLVIDOS</h2>
+    </div>
+    <section id="portfolio">
+        <div class="slide">
+            <div class="slides">
+                <div id="atual" class="imagens-slide">
+                    <img src={% static 'Imagens/image 1.png' %}>
+                </div>
+                <div class="imagens-slide">
+                    <img src={% static 'Imagens/image 1.png' %}>
+                </div>
+                <div class="imagens-slide">
+                    <img src={% static 'Imagens/image 1.png' %}>
+                </div>
+            </div>
+            <div class="balls">
+            </div>
+        </div>
+    </section>
+    <div id="negocios">
+        <div class="negocios-um">
+            <h2>Melhores oportunidades de negócios para você</h2>
+        </div>
+        <div class="negocios-dois">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam hic itaque cumque, omnis nulla illum
+                ratione minus magnam perspiciatis fuga odit quod deserunt officia est velit, cupiditate unde error?
+                Excepturi!</p>
+        </div>
+    </div>
+    <section id="contrate">
+        <img class="aviao" src={% static 'Imagens/Airplane.png' %}>
+        <img class="divisor" src={% static 'Imagens/Divider-01 Top.png' %}>
+        <div class="contrate-container">
+            <div>
+                <h2>Contrate-nos já !</h2>
+                <p>Cadraste-se e faça seu <strong>pedido</strong>.</p>
+            </div>
+            <div class="login"><a href="{% url 'login' %}" >LOGIN</a></div>
+        </div>
+        <br><br><br>
+        <hr width="40%">
 
-<a href="{% url 'order:orders-create' %}">Fazer Pedido</a>
+        <div class="footer">
+            <div class="footer-redes">
+                <img class="img-1" src= {% static 'Imagens/Vector.png' %} alt="Twitter">
+                <img class="img-2" src={% static 'Imagens/Icon.png' %} alt="Instagram">
+                <img class="img-3" src={% static 'Imagens/Facebook.png' %} alt="Facebook">
+            </div>
+            <div class="footer-paragrafo">
+                <p>2021. Desenvolvido por Jonathas, Samira e Ives</p>
+            </div>
+        </div>
 
+    </section>
+    <script src={% static 'script.js' %}></script>
+</body>
 
-<br><br><br>
-
-<a href="{% url 'order:orders-list' status_id=0 %}">Pendentes: {{ pending_count }}</a>
-
-<br><br><br>
-
-<a href="{% url 'order:orders-list' status_id=1 %}">Aceitos: {{ accepted_count }}</a>
-
-<br><br><br>
-
-<a href="{% url 'order:orders-list' status_id=2 %}">Rejeitados: {{ rejected_count }}</a>
-
-{% else %}
-
-<a href="{% url 'login' %}">Fazer Login</a>
-
-{% endif %}</center>
+</html>

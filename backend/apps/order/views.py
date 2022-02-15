@@ -14,6 +14,16 @@ from apps.comment.models import Comment
 from project.custom_mixins import HasOrderPermissionMixin
 
 
+from django.forms import ModelForm
+
+
+class CommentForm(ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ["comment"]
+
+
 class OrderListView(LoginRequiredMixin, ListView):
 
     model = Order
@@ -38,6 +48,7 @@ class OrderDetailView(LoginRequiredMixin, HasOrderPermissionMixin, DetailView):
         context = super().get_context_data(*args, **kwargs)
         # context["comments"] = CommentListView().get_queryset()
         context["comments"] = Comment.objects.filter(order=self.object.pk)
+        context["form"] = CommentForm()
 
         return context
 

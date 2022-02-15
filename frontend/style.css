@@ -13,15 +13,59 @@ body{
     background-color: #091220;
 }
 
-header{
-    height: 2vh;
+#navbar {
     background-color: #0a75c0;
+    color: #fff;
+    padding-left: 20px;
+    height: 55px;
 }
+
+#navbar h2, ul, li, nav{
+    display: inline-block; /*ficar um do lado do outro*/
+    
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+#navbar img {
+    height: 50px;
+    position: absolute; /*conseguir mexer onde eu quiser*/
+    top: 5px;
+}
+
+#navbar nav {
+    float: right; /*vai pra direita*/
+}
+
+#navbar ul{
+    margin-top: 17px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding-left: 30px;
+    margin-right: 20px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
 .texto{
     margin-left: 20%;
 }
 
-.topo-site{
+#topo-site{
     display: flex;
     align-items: center;
     margin-top: 9%;
@@ -39,14 +83,14 @@ header{
 .criacao-nome h1:nth-child(1){
     color: #0a75c0;
 }
-.topo-site h2{
+#topo-site h2{
     color: rgb(255, 255, 255);
     font-size: 30px;
     margin-top: -40px;
     width: 500px;
 }
 
-.topo-site h2 i{
+#topo-site h2 i{
     color: #0a75c0;
 }
 
@@ -128,17 +172,17 @@ h1:nth-child(1):before{
     margin-bottom: -50px;
 }
 
-.section-cards{
+#section-cards {
     background-color: #091220;
     height: 350px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 180px;
+    margin-top: 350px;
    }
    
-.section-cards h2{
+#section-cards h2{
    color: #fff;
    text-transform: uppercase;
    font-size: 30px;
@@ -175,22 +219,13 @@ h1:nth-child(1):before{
    padding-bottom: 20px;
    }
 
-.portfolio h2{
-    color: white;
-    margin-top: 100px;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 45px;
-    text-align: center;
-}
-
-.portfolio {
+#portfolio {
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -22px;
+    margin-top: -20px;
 }
 .slide {
     width: 1024px;
@@ -211,33 +246,6 @@ h1:nth-child(1):before{
 
 #atual {
     transition: all 2s;
-}
-
-.btn {
-    position:absolute;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.4s;
-    font-size: 3em;
-    margin-top: 88%;
-}
-
-.btn:hover{
-    transform: scale(1.5);
-}
-
-#voltar {
-    top: 50%;
-    left: 7%;
-}
-#next {
-    top: 50%;
-    right: 7%;
 }
 
 .balls {
@@ -272,5 +280,113 @@ h1:nth-child(1):before{
     align-items: center;
     justify-content: center;
     margin-top: 80px;
-    font-size: 40px;
+    font-size: 35px;
+}
+
+#negocios{
+    position: absolute;
+    width: 750px;
+    display: flex;
+    align-items:center;
+    height: 7rem;
+    margin-left: 30%;
+    color: #fff;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+.negocios-um h2{
+    font-style: normal;
+    line-height: 30px;
+    font-size: 20px;
+    border-top: 3px solid #0a75c0;
+    width: 160px;
+}
+
+.negocios-dois p{
+    width: 500px;
+}
+
+#contrate {
+    margin-top: 250px;
+    height: 440px;
+}
+
+.divisor {
+    width: 100%;
+}
+
+.aviao {
+    position: absolute;
+    height: 220px;
+    padding-left: 10%;
+}
+
+.contrate-container {
+    display: flex;
+    width: 35%;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -120px;
+}
+
+.contrate-container h2 {
+    font-size: 45px;
+    color: #fff;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.contrate-container p {
+    color: #fff;
+    font-weight: 400;
+    width: 250px;
+    font-size: 20px;
+    margin-top: -23px;
+}
+.login{
+    margin-top: 90px;
+}
+
+.login button{
+    font-family: "Poppins";
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 60px;
+    width: 130px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #2C7AED 0%, #4BC3CC 100%);
+
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    height: 9vh;
+}
+
+.footer-redes {
+    height: 25px;
+    margin-bottom: -50px;
+}
+
+.footer-redes img{
+    cursor: pointer;
+}
+
+.footer-redes .img-2, .img-3{
+    margin-left: 12px;
+}
+
+.footer-paragrafo {
+    margin-bottom: -50px;
 }

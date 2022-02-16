@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+body{
+    margin: 0;
+    border: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../Imagens/tech-daily-dr9Dp1RVYgQ-unsplash-10.png');
+    background-size: cover;
+    background-size: 100%;
+    background-color: #091220;
+}
+
+#navbar {
+    background-color: #0a75c0;
+    color: #fff;
+    padding-left: 20px;
+    height: 55px;
+}
+
+#navbar h2, ul, li, nav{
+    display: inline-block; /*ficar um do lado do outro*/
+    
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+#navbar img {
+    height: 50px;
+    position: absolute; /*conseguir mexer onde eu quiser*/
+    top: 5px;
+}
+
+#navbar nav {
+    float: right; /*vai pra direita*/
+}
+
+#navbar ul{
+    margin-top: 17px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding-left: 30px;
+    margin-right: 35px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
+.navbar-list li img{
+    margin-left: -50px;
+}
+
+.meus-pedidos{
+    color: white;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.meus-pedidos h2{
+    color: white;
+    text-align: center;
+}
+
+.meus-pedidos .traco{
+    width: 50px;
+    height: 2px;
+    background-color: #0A75C0;
+}
+.pedidos{
+    text-align: center;
+}
+
+.pedidos ul{
+    margin-top: 50px;
+}
+
+.pedidos ul li{
+    background: linear-gradient(90deg, rgba(44,122,237,1) 0%, rgba(75,195,204,1) 100%);
+    border-radius: 20px;
+    font-size:19px;
+    text-align: center;
+    padding: 5px 35px;
+}
+
+.pedidos ul li:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.473);
+}
+
+.pedidos #btn2, #btn3{
+    margin-left: 60px;
+}
+
+.criar-pedido{
+    width: 60%;
+    margin: auto;
+}
+
+.criar-pedido h2:hover{
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(75,195,204,1) 0%, rgba(44,122,237,1) 100%);
+    border-radius: 20px;
+}
+
+.criar-pedido h2{
+    text-align: center;
+    margin-top: 200px;
+    font-size: 20px;
+    background: linear-gradient(90deg, rgb(13, 75, 168) 0%, rgba(75,195,204,1) 100%);
+    padding: 5px 15px;
+    border-radius: 20px;
+}

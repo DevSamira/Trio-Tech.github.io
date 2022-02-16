@@ -18,4 +18,6 @@ def index(request):
         context["rejected_count"] = Order.objects.filter(
             status=2, owner=owner).count()
 
+        return render(request, "index_logged.html", context)
+
     return render(request, "index.html", context)

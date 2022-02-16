@@ -7,131 +7,592 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href= {% static 'style.css' %}>
+    <link rel="stylesheet" href= {% static 'css/style.css' %}>
     <link rel="shortcut icon" href={% static '/Imagens/logopng2.png' %} />
     <script src="https:kit.fontawesome.com/ca14b9e588.js" crossorigin="anonymous"></script>
     <title>TT - TrioTech</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+body {
+	margin: 0;
+	border: border-box;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+	background-image: url("../Imagens/jefferson-santos-9SoCnyQmkzI-unsplash\ 1\ \(3\).png");
+	background-size: cover;
+	background-repeat: repeat-x;
+	background-size: 110%;
+	background-position-x: -4px;
+	height: 70vh;
+	background-color: #091220;
+}
+
+#navbar {
+	background-color: #0a75c0;
+	color: #fff;
+	padding-left: 20px;
+	height: 55px;
+}
+
+#navbar h2,
+ul,
+li,
+nav {
+	display: inline-block; /*ficar um do lado do outro*/
+}
+
+#navbar h2 {
+	margin: 0;
+	line-height: 60px;
+	margin-left: 15px;
+	font-size: 30px;
+}
+
+#navbar img {
+	height: 50px;
+	position: absolute; /*conseguir mexer onde eu quiser*/
+	top: 5px;
+}
+
+#navbar nav {
+	float: right; /*vai pra direita*/
+}
+
+#navbar ul {
+	margin-top: 17px;
+}
+
+#navbar li {
+	margin: 0 10px;
+	padding-left: 30px;
+	margin-right: 20px;
+}
+
+.navbar-list li a {
+	text-decoration: none;
+	color: white;
+}
+
+.navbar-list li a:hover {
+	border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
+.texto {
+	margin-left: 20%;
+}
+
+#topo-site {
+	display: flex;
+	align-items: center;
+	margin-top: 9%;
+}
+.criacao-nome {
+	display: flex;
+	align-items: center;
+}
+.criacao-nome h1 {
+	font-size: 70px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 2px 2px 2px black;
+}
+
+.criacao-nome h1:nth-child(1) {
+	color: #0a75c0;
+}
+#topo-site h2 {
+	color: rgb(255, 255, 255);
+	font-size: 30px;
+	margin-top: -40px;
+	width: 500px;
+}
+
+#topo-site h2 i {
+	color: #0a75c0;
+}
+
+h1:nth-child(1):before {
+	content: "|";
+	color: white;
+	text-align: center;
+}
+
+#mensagem {
+	background: none;
+	width: 440px;
+	margin-bottom: 40px;
+	padding-bottom: 15px;
+	align-items: center;
+	height: 70px;
+	border-bottom: 2px solid #0a75c0;
+}
+
+.mensagem-1 {
+	animation: mensagens-na-tela 1s ease-in-out;
+	animation-fill-mode: forwards;
+	margin-left: -12%;
+}
+.mensagem-2 {
+	animation: mensagens-na-tela 2s;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	margin-left: -100%;
+}
+.mensagem-3 {
+	animation: mensagens-na-tela 1s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	margin-left: -100%;
+}
+
+@keyframes mensagens-na-tela {
+	0% {
+		opacity: 0%;
+		margin-left: -10%;
+	}
+	100% {
+		margin-left: 20%;
+		margin-bottom: 40px;
+	}
+}
+
+#mensagem p {
+	color: white;
+	text-align: left;
+	padding-top: 2%;
+	font-size: 22px;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.534);
+}
+
+.seta-para-baixo {
+	margin-left: 30%;
+	animation: animacao-seta 2s infinite ease-in-out;
+	animation-direction: alternate;
+}
+
+.seta-para-baixo img {
+	height: 100px;
+	width: 100px;
+}
+
+@keyframes animacao-seta {
+	50% {
+		transform: translateY(-30px);
+	}
+	100% {
+		transform: translateY(30px);
+	}
+}
+
+#logo {
+	margin-left: 20%;
+	margin-bottom: -50px;
+}
+
+#section-cards {
+	background-color: #091220;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 350px;
+}
+
+#section-cards h2 {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-top: 70px;
+}
+
+.cards {
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.card {
+	background-color: #494d53;
+	width: 220px;
+	height: 190px;
+	margin-left: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: #fff;
+	border-radius: 20px;
+}
+
+.card:hover {
+	background-color: #104757;
+	transition: 0.3s all;
+}
+
+.card img {
+	width: 60px;
+	padding-bottom: 20px;
+}
+
+#portfolio {
+	width: 100%;
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -20px;
+}
+.slide {
+	width: 1024px;
+	height: 576px;
+	overflow: hidden;
+	transition: all 0.4s;
+}
+
+.slides {
+	display: flex;
+	width: 5120px;
+}
+
+.imagens-slide img {
+	width: 1024px;
+	height: 100%;
+}
+
+#atual {
+	transition: all 2s;
+}
+
+.balls {
+	position: absolute;
+	width: 1024px;
+	display: flex;
+	justify-content: center;
+	margin-top: -45px;
+}
+
+.balls div {
+	transition: all 0.5s;
+	border: 3px solid #1c1c1d;
+	padding: 6px;
+	border-radius: 50%;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.balls div:hover {
+	background: #222222;
+}
+
+.imgAtual {
+	transition: all 0.5s;
+	background: #fff;
+}
+
+.titulo h2 {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 80px;
+	font-size: 35px;
+}
+
+#negocios {
+	position: absolute;
+	width: 750px;
+	display: flex;
+	align-items: center;
+	height: 7rem;
+	margin-left: 30%;
+	color: #fff;
+	justify-content: space-between;
+	margin-top: 2%;
+}
+
+.negocios-um h2 {
+	font-style: normal;
+	line-height: 30px;
+	font-size: 20px;
+	border-top: 3px solid #0a75c0;
+	width: 160px;
+}
+
+.negocios-dois p {
+	width: 500px;
+}
+
+#contrate {
+	margin-top: 250px;
+	height: 440px;
+}
+
+.divisor {
+	width: 100%;
+}
+
+.aviao {
+	position: absolute;
+	height: 220px;
+	padding-left: 10%;
+}
+
+.contrate-container {
+	display: flex;
+	width: 35%;
+	align-items: center;
+	justify-content: space-around;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -120px;
+}
+
+.contrate-container h2 {
+	font-size: 45px;
+	color: #fff;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.contrate-container p {
+	color: #fff;
+	font-weight: 400;
+	width: 250px;
+	font-size: 20px;
+	margin-top: -23px;
+}
+.login {
+	margin-top: 90px;
+}
+
+.login button {
+	font-family: "Poppins";
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	border: none;
+	border-radius: 60px;
+	width: 130px;
+	cursor: pointer;
+	background: linear-gradient(90deg, #2c7aed 0%, #4bc3cc 100%);
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	width: 40%;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: space-between;
+	height: 9vh;
+}
+
+.footer-redes {
+	height: 25px;
+	margin-bottom: -50px;
+}
+
+.footer-redes img {
+	cursor: pointer;
+}
+
+.footer-redes .img-2,
+.img-3 {
+	margin-left: 12px;
+}
+
+.footer-paragrafo {
+	margin-bottom: -50px;
+}
+
+    </style>
 </head>
 
 <body>
-    <header id="navbar">
-        <h2>TRIO - TECH</h2>
-        <nav>
-            <ul class="navbar-list">
-                <li><a href="#navbar">INÍCIO</a></li>
-                <li><a href="#section-cards">SOBRE</a></li>
-                <li><a href="#portfolio">PROJETOS</a></li>
-                <li><a href="#contrate">CONTRATE-NOS</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="topo-site">
-        <div class="mensagens">
-            <section id="mensagem" class="mensagem-1">
-                <p>Procurando soluções para os seus problemas?</p>
-            </section>
-            <section id="mensagem" class="mensagem-2">
-                <p>Somos sinônimo de agilidade e qualidade</p>
-            </section>
-            <section id="mensagem" class="mensagem-3">
-                <p>Alavanque os seus negócios com a gente!
-                <p>
-            </section>
-        </div>
-        <div class="mensagens">
-        </div>
-        <div class="texto">
-            <img id="logo" src={% static '/Imagens/logopng2.png' %} alt="logo empresa" width="100px" height="100px">
-            <div class="criacao-nome">
-                <h1>TRIO</h1>
-                <h1> TECH</h1>
-            </div>
-            <h2>Criar, inovar, <i>revolucionar.</i></h2>
-            <figure class="seta-para-baixo">
-                <img src= {% static '/Imagens/271210.png' %} alt="seta para baixo">
-            </figure>
-        </div>
-    </section>
-    <section id="section-cards">
-        <h2>UMA EMPRESA QUE TE GARANTE</h2>
-        <div class="cards">
-            <div class="card">
-                <img src={% static 'Imagens/tecnologia.png' %}>
-                QUALIDADE DE SOFTWARE
-            </div>
-            <div class="card">
-                <img src={% static 'Imagens/tecnologia.png' %}>
-                COMPROMISSO
-            </div>
-            <div class="card">
-                <img src={% static 'Imagens/tecnologia.png' %}>
-                INTELIGIBILIDADE
-            </div>
-            <div class="card">
-                <img src={% static 'Imagens/tecnologia.png' %}>
-                RESOLUÇÃO DE PROBLEMAS
-            </div>
-        </div>
-        <br>
-        <hr width="40%">
-        </hr> <br>
-    </section>
-    <div class="titulo">
-        <h2>PROJETOS DESENVOLVIDOS</h2>
-    </div>
-    <section id="portfolio">
-        <div class="slide">
-            <div class="slides">
-                <div id="atual" class="imagens-slide">
-                    <img src={% static 'Imagens/image 1.png' %}>
-                </div>
-                <div class="imagens-slide">
-                    <img src={% static 'Imagens/image 1.png' %}>
-                </div>
-                <div class="imagens-slide">
-                    <img src={% static 'Imagens/image 1.png' %}>
-                </div>
-            </div>
-            <div class="balls">
-            </div>
-        </div>
-    </section>
-    <div id="negocios">
-        <div class="negocios-um">
-            <h2>Melhores oportunidades de negócios para você</h2>
-        </div>
-        <div class="negocios-dois">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam hic itaque cumque, omnis nulla illum
-                ratione minus magnam perspiciatis fuga odit quod deserunt officia est velit, cupiditate unde error?
-                Excepturi!</p>
-        </div>
-    </div>
-    <section id="contrate">
-        <img class="aviao" src={% static 'Imagens/Airplane.png' %}>
-        <img class="divisor" src={% static 'Imagens/Divider-01 Top.png' %}>
-        <div class="contrate-container">
-            <div>
-                <h2>Contrate-nos já !</h2>
-                <p>Cadraste-se e faça seu <strong>pedido</strong>.</p>
-            </div>
-            <div class="login"><a href="{% url 'login' %}" >LOGIN</a></div>
-        </div>
-        <br><br><br>
-        <hr width="40%">
 
-        <div class="footer">
-            <div class="footer-redes">
-                <img class="img-1" src= {% static 'Imagens/Vector.png' %} alt="Twitter">
-                <img class="img-2" src={% static 'Imagens/Icon.png' %} alt="Instagram">
-                <img class="img-3" src={% static 'Imagens/Facebook.png' %} alt="Facebook">
-            </div>
-            <div class="footer-paragrafo">
-                <p>2021. Desenvolvido por Jonathas, Samira e Ives</p>
-            </div>
-        </div>
+
+<header id="navbar">
+	<h2>TRIO - TECH</h2>
+	<nav>
+		<ul class="navbar-list">
+			<li><a href="#navbar">INÍCIO</a></li>
+			<li><a href="#section-cards">SOBRE</a></li>
+			<li><a href="#portfolio">PROJETOS</a></li>
+			<li><a href="#contrate">CONTRATE-NOS</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="topo-site">
+	<div class="mensagens">
+		<section id="mensagem" class="mensagem-1">
+			<p>Procurando soluções para os seus problemas?</p>
+		</section>
+		<section id="mensagem" class="mensagem-2">
+			<p>Somos sinônimo de agilidade e qualidade</p>
+		</section>
+		<section id="mensagem" class="mensagem-3">
+			<p>Alavanque os seus negócios com a gente!
+			<p>
+		</section>
+	</div>
+	<div class="mensagens">
+	</div>
+	<div class="texto">
+		<img id="logo" src={% static '/Imagens/logopng2.png' %} alt="logo empresa" width="100px" height="100px">
+		<div class="criacao-nome">
+			<h1>TRIO</h1>
+			<h1> TECH</h1>
+		</div>
+		<h2>Criar, inovar, <i>revolucionar.</i></h2>
+		<figure class="seta-para-baixo">
+			<img src= {% static '/Imagens/271210.png' %} alt="seta para baixo">
+		</figure>
+	</div>
+</section>
+<section id="section-cards">
+	<h2>UMA EMPRESA QUE TE GARANTE</h2>
+	<div class="cards">
+		<div class="card">
+			<img src={% static 'Imagens/tecnologia.png' %}>
+			QUALIDADE DE SOFTWARE
+		</div>
+		<div class="card">
+			<img src={% static 'Imagens/tecnologia.png' %}>
+			COMPROMISSO
+		</div>
+		<div class="card">
+			<img src={% static 'Imagens/tecnologia.png' %}>
+			INTELIGIBILIDADE
+		</div>
+		<div class="card">
+			<img src={% static 'Imagens/tecnologia.png' %}>
+			RESOLUÇÃO DE PROBLEMAS
+		</div>
+	</div>
+	<br>
+	<hr width="40%">
+	</hr> <br>
+</section>
+<div class="titulo">
+	<h2>PROJETOS DESENVOLVIDOS</h2>
+</div>
+<section id="portfolio">
+	<div class="slide">
+		<div class="slides">
+			<div id="atual" class="imagens-slide">
+				<img src={% static 'Imagens/image 1.png' %}>
+			</div>
+			<div class="imagens-slide">
+				<img src={% static 'Imagens/image 1.png' %}>
+			</div>
+			<div class="imagens-slide">
+				<img src={% static 'Imagens/image 1.png' %}>
+			</div>
+		</div>
+		<div class="balls">
+		</div>
+	</div>
+</section>
+<div id="negocios">
+	<div class="negocios-um">
+		<h2>Melhores oportunidades de negócios para você</h2>
+	</div>
+	<div class="negocios-dois">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam hic itaque cumque, omnis nulla illum
+			ratione minus magnam perspiciatis fuga odit quod deserunt officia est velit, cupiditate unde error?
+			Excepturi!</p>
+	</div>
+</div>
+<section id="contrate">
+	<img class="aviao" src={% static 'Imagens/Airplane.png' %}>
+	<img class="divisor" src={% static 'Imagens/Divider-01 Top.png' %}>
+	<div class="contrate-container">
+		<div>
+			<h2>Contrate-nos já !</h2>
+			<p>Cadraste-se e faça seu <strong>pedido</strong>.</p>
+		</div>
+		<div class="login"><a href="{% url 'login' %}" >LOGIN</a></div>
+	</div>
+	<br><br><br>
+	<hr width="40%">
+
+	<div class="footer">
+		<div class="footer-redes">
+			<img class="img-1" src= {% static 'Imagens/Vector.png' %} alt="Twitter">
+			<img class="img-2" src={% static 'Imagens/Icon.png' %} alt="Instagram">
+			<img class="img-3" src={% static 'Imagens/Facebook.png' %} alt="Facebook">
+		</div>
+		<div class="footer-paragrafo">
+			<p>2021. Desenvolvido por Jonathas, Samira e Ives</p>
+		</div>
+	</div>
+
+
+
 
     </section>
-    <script src={% static 'script.js' %}></script>
+    <script>
+
+        let balls = document.querySelector(".balls");
+        let quant = document.querySelectorAll(".slides .imagens-slide");
+        let atual = 0;
+        let imagem = document.getElementById("atual");
+        let next = document.getElementById("next");
+        let voltar = document.getElementById("voltar");
+        let rolar = true;
+
+        for (let i = 0; i < quant.length; i++) {
+            let div = document.createElement("div");
+            div.id = i;
+            balls.appendChild(div);
+        }
+
+        document.getElementById("0").classList.add("imgAtual");
+
+        let pos = document.querySelectorAll(".balls div");
+
+        for (let i = 0; i < pos.length; i++) {
+            pos[i].addEventListener("click", function () {
+                atual = pos[i].id;
+                rolar = false;
+                slide();
+            });
+        }
+
+        voltar.addEventListener("click", () => {
+            atual--;
+            rolar = false;
+            slide();
+        });
+        next.addEventListener("click", () => {
+            atual++;
+            rolar = false;
+            slide();
+        });
+
+        function slide() {
+            if (atual >= quant.length) {
+                atual = 0;
+            } else if (atual < 0) {
+                atual = quant.length - 1;
+            }
+            document.querySelector(".imgAtual").classList.remove(".imgAtual");
+            imagem.style.marginLeft = -1024 * atual + "px";
+            document.getElementById(atual).classList.add("imgAtual");
+        }
+        setInterval(() => {
+            if (rolar) {
+                atual++;
+                slide();
+            } else {
+                rolar = true;
+            }
+        }, 4000);
+
+    </script>
 </body>
 
 </html>

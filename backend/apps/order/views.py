@@ -30,13 +30,18 @@ class OrderListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
 
-        print(self.kwargs)
-
         status_id = self.kwargs["status_id"]
         queryset = self.model.objects.filter(
             status=status_id, owner=self.request.user)
 
         return queryset
+
+    def get_context_data(self, *args, **kwargs):
+
+        context = super().get_context_data(*args, **kwargs)
+        context["status_type"] = self.kwargs['status_id']
+
+        return context
 
 
 class OrderDetailView(LoginRequiredMixin, HasOrderPermissionMixin, DetailView):

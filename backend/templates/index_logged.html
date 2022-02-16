@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./Imagens/logopng2.png"/>
     <link rel="stylesheet" href="./CSS/style.css">
-    <title>Pedidos</title>
+    <link rel="shortcut icon" href="./Imagens/logopng2.png"/>
+    <title>TT-Meus Pedidos</title>
     <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 body{
     margin: 0;
     border: border-box;
@@ -50,12 +48,12 @@ a {
 
 #navbar img {
     height: 50px;
-    position: absolute;
+    position: absolute; /*conseguir mexer onde eu quiser*/
     top: 5px;
 }
 
 #navbar nav {
-    float: right;
+    float: right; /*vai pra direita*/
 }
 
 #navbar ul{
@@ -81,10 +79,6 @@ a {
     margin-left: -50px;
 }
 
-.navbar-list li img{
-    margin-left: -50px;
-}
-
 .meus-pedidos{
     color: white;
     width: 70%;
@@ -92,31 +86,18 @@ a {
     margin-top: 50px;
 }
 
-.titulo h2{
-    margin: auto;
-    width: 400px;
-    position: relative;
+.meus-pedidos h2{
     color: white;
     text-align: center;
-    font-size: 30px;
 }
 
-.titulo h2::before {
-    content : "";
-    position: absolute;
-    left: 0;
-    height: 4px;
-    margin-left: 30%;
-    margin-top: 5px;
-    bottom  : 0px;
-    width   : 40%;
-    border-radius: 8px;
-    background-color:  #0A75C0;
-  }
-
+.meus-pedidos .traco{
+    width: 50px;
+    height: 2px;
+    background-color: #0A75C0;
+}
 .pedidos{
     text-align: center;
-    margin: auto;
 }
 
 .pedidos ul{
@@ -128,19 +109,16 @@ a {
     border-radius: 20px;
     font-size:19px;
     text-align: center;
-    padding: 5px 100px;
+    padding: 5px 35px;
 }
 
-.pedidos #btn3{
-    margin-left: -35px;
+.pedidos ul li:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.473);
 }
 
-.pedidos #btn1{
-    margin-right: -35px;
-}
-
-.pedidos #btn2{
-    z-index: 0;
+.pedidos #btn2, #btn3{
+    margin-left: 60px;
 }
 
 .criar-pedido{
@@ -162,24 +140,7 @@ a {
     padding: 5px 15px;
     border-radius: 20px;
 }
-
-.pedido{
-    margin-left: 16%;
-    width: 690px;
-    border: 1px dashed white;
-    background-color: #13233C;
-}
-
-.pedido #data{
-    padding-left: 120px;
-}
-
-.pedido #motivo{
-    padding-left: 140px;
-}
-
-</style>
-
+    </style>
 </head>
 <body>
     <header id="navbar">
@@ -193,53 +154,21 @@ a {
         </nav>
     </header>
     <section class="meus-pedidos">
-        <div class="titulo">
-
-            {% if status_type == 0 %}
-
-            <h2>Pedidos Pendentes</h2>
-
-            {% elif status_type == 1 %}
-
-            <h2>Pedidos Aceitos</h2>
-
-            {% elif status_type == 2 %}
-
-            <h2>Pedidos Rejeitados</h2>
-
-            {% endif %}
-
-        </div>
-
+        <h2>Meus Pedidos</h2>
+        <span class="traco"></span>
         <div class="pedidos">
             <ul>
-                <li id="btn1">Pedido</li>
-                <li id="btn2">Data</li>
-                <li id="btn3">Status</li>
-            </ul>
-        </div>
-        <div class="pedido">
-
-            <ul>
-
-                {% for order in object_list %}
-
-                <li id="nome-do-pedido">{{ order.title }}</li>
-                <li id="data">{{ order.owner }}</li>
-                <li id="motivo">{{ order.get_status }}</li>
-                <br>
-
-                {% endfor %}
+                <li id="btn1"><a href="{% url 'order:orders-list' status_id=2 %}">Recusados</a></li>
+                <li id="btn2"><a href="{% url 'order:orders-list' status_id=0 %}">Em andamento</a></li>
+                <li id="btn3"><a href="{% url 'order:orders-list' status_id=1 %}">Aceitos</a></li>
 
             </ul>
-
         </div>
-
         <div class="criar-pedido">
+
             <h2><a  href="{% url 'order:orders-create' %}">Criar Pedido +</a></h2>
         </div>
     </section>
+
 </body>
 </html>
-
-

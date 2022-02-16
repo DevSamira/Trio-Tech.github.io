@@ -4,7 +4,7 @@ body{
     border: border-box;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-image: url('/Imagens/backgroundpag2.png');
+    background-image: url('./Imagens/jefferson-santos-9SoCnyQmkzI-unsplash\ 1\ \(3\).png');
     background-size: cover;
     background-repeat: repeat-x;
     background-size: 110%;
@@ -361,11 +361,6 @@ h1:nth-child(1):before{
     cursor: pointer;
     background: linear-gradient(90deg, #2C7AED 0%, #4BC3CC 100%);
 
-}
-
-.login a {
-    text-decoration: none;
-    color: #fff;
 }
 
 .footer {

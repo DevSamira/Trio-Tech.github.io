@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+body{
+    margin: 0;
+    border: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-size: 100%;
+    background-color: #091220;
+}
+
+#navbar {
+    background-color: #0a75c0;
+    color: #fff;
+    padding-left: 20px;
+    height: 55px;
+}
+
+#navbar h2, ul, li, nav{
+    display: inline-block; /*ficar um do lado do outro*/
+    
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+#navbar img {
+    height: 50px;
+    position: absolute; /*conseguir mexer onde eu quiser*/
+    top: 5px;
+}
+
+#navbar nav {
+    float: right; /*vai pra direita*/
+}
+
+#navbar ul{
+    margin-top: 17px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding-left: 30px;
+    margin-right: 35px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
+.navbar-list li img{
+    margin-left: -50px;
+}
+
+.container{
+    background-color: #13233C;
+    border-radius: 10px;
+    width: 770px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 5rem;
+}
+
+.container .titulo {
+    background-color: #13233C;
+    border: 1.5px solid #fff;
+    border-radius: 15px;
+    height: 34px;
+    width: 700px;
+}
+
+.titulo p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+
+}
+
+.container h3 {
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.comentario textarea{
+    background-color: #13233C;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.balao, .balao2  {
+    color: #fff;
+    font-size: 13px;
+}
+
+.balao2 p {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+
+}
+
+.balao {
+    background: #13233C;
+    padding: 10px;
+    position: relative;
+    width: 15rem;
+    height: 6rem;
+    margin:0 auto;
+    border: 1px solid #fff;
+    border-radius: 15px;
+
+}
+
+.balao::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 18px;
+    left: -8px;
+    background: #13233C;
+    transform: rotate(45deg);
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+
+.balao2 {
+    background: #13233C;
+    padding: 10px;
+    position: relative;
+    width: 15rem;
+    height: 6rem;
+    margin:0 auto;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.balao2::after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 18px;
+    right: -8px;
+    background: #13233C;
+    transform: rotate(45deg);
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.baloes {
+    display: flex;
+    flex-direction: row;
+    width: 45rem;
+    margin: auto;
+}
+
+.enviar {
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
+    height: 1.5rem;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.enviar input[type="text"]{
+    background: #13233C;
+    border: none;
+    height: 4rem;
+    width: 250px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    font-family: "Poppins";
+    font-style: normal;
+    color: #fff;
+    font-weight: 200;
+}
+.enviar input[type="text"]::placeholder{
+color: rgb(255, 255, 255);
+}
+#msg{
+    color: #fff;
+}
+
+.enviar input[type="button"]{
+    border: none;
+    background: linear-gradient(90deg, #2163C6 0%, #4BC3CC 100%);
+    border-radius: 15px;
+    color: #fff;
+    width: 3.5rem;
+    height: 1.3rem;
+}

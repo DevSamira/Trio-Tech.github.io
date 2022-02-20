@@ -183,7 +183,7 @@ a {
 </head>
 <body>
     <header id="navbar">
-        <h2>TRIO - TECH</h2>
+        <h2><a href="{% url 'index' %}">TRIO - TECH</a></h2>
         <nav>
             <ul class="navbar-list">
                 <li><a href="{% url 'logout' %}">
@@ -224,7 +224,7 @@ a {
 
                 {% for order in object_list %}
 
-                <li id="nome-do-pedido">{{ order.title }}</li>
+                <li id="nome-do-pedido"><a href="{% url 'order:orders-detail' order.pk %}">{{ order.title }}</a></li>
                 <li id="data">{{ order.owner }}</li>
                 <li id="motivo">{{ order.get_status }}</li>
                 <br>

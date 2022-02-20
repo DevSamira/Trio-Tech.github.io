@@ -145,7 +145,7 @@ form input[type = "text"] {
 
 form input[type = "password"] {
     font-family: "Poppins";
-    margin-top: 2rem;
+    {% comment %} margin-top: 2rem; {% endcomment %}
     background: #091220;
     border-radius: 15px;
     padding: 0.4rem;
@@ -182,12 +182,15 @@ form input[type = "password"] {
         <form method="post">{% csrf_token %}
             <h2>Cadastre-se</h2>
             <div class="input-field">
+                <p style="color: white;">Username:</p>
                 {{ form.username }}
             </div>
             <div class="input-field">
+                <p style="color: white;">Senha:</p>
                 {{ form.password1 }}
             </div>
             <div class="input-field">
+                <p style="color: white;">Confirmar Senha:</p>
                 {{ form.password2 }}
             </div>
             <div class="input-field">

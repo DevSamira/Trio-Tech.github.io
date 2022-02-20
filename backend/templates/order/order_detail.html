@@ -1,59 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
-    <title>Orders</title>
+    <link rel="shortcut icon" href="Imagens/logopng2.png"/>
+    <title>TT - Descrição</title>
+    <link rel="stylesheet" href="CSS/coments.css">
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+body{
+    margin: 0;
+    border: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-size: 100%;
+    background-color: #091220;
+}
+
+#navbar {
+    background-color: #0a75c0;
+    color: #fff;
+    padding-left: 20px;
+    height: 55px;
+}
+
+#navbar h2, ul, li, nav{
+    display: inline-block; /*ficar um do lado do outro*/
+
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+#navbar img {
+    height: 50px;
+    position: absolute; /*conseguir mexer onde eu quiser*/
+    top: 5px;
+}
+
+#navbar nav {
+    float: right; /*vai pra direita*/
+}
+
+#navbar ul{
+    margin-top: 17px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding-left: 30px;
+    margin-right: 35px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
+.navbar-list li img{
+    margin-left: -50px;
+}
+
+.container{
+    background-color: #13233C;
+    border-radius: 10px;
+    width: 770px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 5rem;
+}
+
+.container .titulo {
+    background-color: #13233C;
+    border: 1.5px solid #fff;
+    border-radius: 15px;
+    height: 34px;
+    width: 700px;
+}
+
+.titulo p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.container h3 {
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.comentario textarea{
+    background-color: #13233C;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+#msg{
+    color: #fff;
+}
+
+.comentario textarea {
+    color: #fff;
+    font-family: "Poppins";
+    padding-left: 15px;
+    padding-top: 5px;
+    width: 700px;
+}
+
+.criar-pedido{
+    width: 30%;
+    margin: auto;
+}
+
+.criar-pedido h2:hover{
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(75,195,204,1) 0%, rgba(44,122,237,1) 100%);
+    border-radius: 20px;
+}
+
+.criar-pedido h2{
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    margin-bottom: 50px;
+    background: linear-gradient(90deg, rgb(13, 75, 168) 0%, rgba(75,195,204,1) 100%);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.adm-comment {
+    background-color: #13233C;
+    max-width: 40rem;
+    height: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 1.5px solid #fff;
+    position: relative;
+}
+
+.adm-comment p {
+    padding-left: 10px;
+    color: #fff;
+}
+
+</style>
 </head>
+
 <body>
 
-<center>
+    <header id="navbar">
+        <h2><a href="{% url 'index' %}">TRIO - TECH</a></h2>
+        <nav>
+            <ul class="navbar-list">
+                <li><a href="{% url 'logout' %}">
+                    Log out</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="order-and-comments">
+    <center>
+    <a href="{% url 'order:orders-update' object.pk %}">EDITAR</a>
+    <a href="{% url 'order:orders-delete' object.pk %}">DELETAR</a>
+    </center>
 
-    <a href="{% url 'order:orders-list' status_id=0 %}">Ver Pedidos</a>
+    <div class="container">
 
-    <br><br><br>
+        <div>
+            <div class="titulo"><p>Título: {{ object.title }}</p></div>
+        </div>
 
-    {% if object.status == 0 %}
+        <h3>Descrição</h3>
+            <div class="comentario"><textarea name="descrição" id="" cols="75" rows="10" disabled>{{ object.description }}</textarea></div>
+        </div>
 
-    <a href="{% url 'order:orders-update' object.pk %}">Editar Pedido</a>
-    <a href="{% url 'order:orders-delete' object.pk %}">Deletar Pedido</a>
+        <div class="criar-pedido">
+            <h2><a  href="{% url 'order:orders-create' %}">Criar Outro Pedido +</a></h2>
+        </div>
 
-    {% else %}
+        {% for comment in comments %}
 
-    <a href="{% url 'order:orders-delete' object.pk %}">Deletar Pedido</a>
+        <div class="adm-comment">
+            <p> {{ comment.owner }} (Admin) diz: {{ comment }}</p>
+        </div>
 
-    {% endif %}
-
-    <p>Título: {{ order.title }}</p>
-    <p>Descricao: {{ order.description }}</p>
-    <p>Status: {{ order.get_status }}</p>
-    <p>Criador: {{ order.owner }}</p>
-
-
-    <h1>COMENTARIOS DO POST</h1>
-
-    <form hx-post="{% url 'comment:comments-create' order_id=object.pk %}" hx-swap="outerHTML" hx-target="#order-and-comments">
-
-        {% csrf_token %}
-        <label for="">{{ form.comment }}</label><br><br>
-
-        <button type="submit" > Fazer Comentario </button>
-
-    </form>
-    <br>
-
-    {% for comment in comments %}
-
-        <p>{{ comment }}</p>
-
-    {% endfor %}
-
-    </div>
-</center>
+        {% endfor %}
 
 </body>
 </html>

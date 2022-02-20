@@ -1,8 +1,225 @@
-<center>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pedido</title>
+    <link rel="stylesheet" href="css/loginCadastro.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+body{
+    margin: 0;
+    border: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #091220;
+}
 
-</center>
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#navbar {
+    background-color: #0a75c0;
+    color: #fff;
+    padding-left: 20px;
+    height: 55px;
+}
+
+#navbar h2, ul, li, nav{
+    display: inline-block; /*ficar um do lado do outro*/
+
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+#navbar img {
+    height: 50px;
+    position: absolute; /*conseguir mexer onde eu quiser*/
+    top: 5px;
+}
+
+#navbar nav {
+    float: right; /*vai pra direita*/
+}
+
+#navbar ul{
+    margin-top: 17px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding-left: 30px;
+    margin-right: 20px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    border-bottom: 2px solid #285453; /*listra embaixo da palavra*/
+}
+
+.container {
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 350px;
+min-height: 40vh;
+padding: 2rem;
+margin: 0 auto;
+margin-top: 10%;
+}
+
+.container h2 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    position: relative;
+    font-size: 35px;
+}
+
+main h2::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 20px;
+    bottom: 3px;
+    left: 0;
+    border-radius: 8px;
+    background-color: #0a75c0;
+    padding-left: 13px;
+}
+
+.input-field {
+    position: relative;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 0.9rem;
+    color: rgb(255, 255, 255);
+}
+
+.input-field input::placeholder {
+    color:rgb(255, 255, 255) ;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type= "submit"] {
+    font-family: "Poppins";
+    font-size: 15px;
+    margin-top: 2rem;
+    background: linear-gradient(90deg, #2C7AED 0%, #4BC3CC 100%);
+    border-radius: 15px;
+    padding: 0.4rem;
+    width: 320px;
+    height: 36px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 300;
+    border: none;
+}
+
+form input[type = "text"] {
+    font-family: "Poppins";
+    background: #091220;
+    border-radius: 15px;
+    padding: 0.4rem;
+    width: 307px;
+    height: 25px;
+    outline: none;
+    border: 1.5px solid #fff;
+    font-weight: 300;
+}
+
+form textarea {
+    font-family: "Poppins";
+    background: #091220;
+    border-radius: 15px;
+    padding: 0.4rem;
+    width: 307px;
+    height: 100px;
+    outline: none;
+    border: 1.5px solid #fff;
+    font-weight: 300;
+    color: white;
+}
+
+
+form input[type = "password"] {
+    font-family: "Poppins";
+    margin-top: 2rem;
+    background: #091220;
+    border-radius: 15px;
+    padding: 0.4rem;
+    width: 307px;
+    height: 25px;
+    outline: none;
+    border: 1.5px solid #fff;
+    font-weight: 300;
+}
+
+.cadastro a {
+    font-style: normal;
+    color: #fff;
+    text-decoration: none;
+}
+.cadastro{
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <h2><a href="{% url 'index' %}">TRIO - TECH</a></h2>
+        <nav>
+            <ul class="navbar-list">
+                <li><a href="{% url 'index' %}">INÍCIO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <form method="post">{% csrf_token %}
+
+            <h2>Criar/Editar Pedido</h2>
+
+            <div class="input-field">
+
+                {{ form.title }}
+
+            </div>
+
+            <br>
+
+            <div class="input-field">
+                {{ form.description }}
+
+            </div>
+
+            <div class="input-field">
+                <input type="submit" value="Salvar">
+                <div class="underline"></div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

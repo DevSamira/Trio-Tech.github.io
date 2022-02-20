@@ -156,6 +156,13 @@ form input[type = "password"] {
     font-weight: 300;
 }
 
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+    color: white;
+  }
+
 .cadastro a {
     font-style: normal;
     color: #fff;
@@ -171,10 +178,9 @@ form input[type = "password"] {
 
 <body>
     <header id="navbar">
-        <h2>TRIO - TECH</h2>
+        <h2><a href="{% url 'index' %}">TRIO - TECH</a></h2>
         <nav>
             <ul class="navbar-list">
-                <li><a href="index.html">INÍCIO</a></li>
             </ul>
         </nav>
     </header>

@@ -16,16 +16,18 @@ Em nosso website, usuários podem se cadastrar e criar pedidos de software, que 
 
 ### Rodando o projeto localmente
 
-#### Ambientes Linux
+#### Ambientes Linux (Ubuntu)
 
 - Faça um clone do repositório: ```$ git clone https://github.com/Trio-Tech/Trio-Tech.github.io.git```
 - Entre na pasta **backend**
+- Instale o python: ```$ sudo apt install python3 python3-venv python3-pip```
 - Crie um ambiente virtual Python e o ative: ```$ python3 -m venv env``` seguido por ```$ source env/bin/activate```
 
 #### Ambientes Windows
 
 - Faça um clone do repositório: ```$ git clone https://github.com/Trio-Tech/Trio-Tech.github.io.git```
 - Entre na pasta **backend**
+- Instale o python: https://www.python.org/ (Lembre de marcar pra adicionar o Python ao path)
 - Crie um ambiente virtual Python e o ative: ```$ python -m venv env``` seguido por ```$ env\Scripts\activate```
 
 #### Os proximos passos são comuns para ambos os ambientes
